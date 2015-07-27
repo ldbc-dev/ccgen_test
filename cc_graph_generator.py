@@ -140,14 +140,6 @@ def generate_communities(degree_sequence):
   return communities
 
 
-'''
-  Given a list of valid communities and a degree sequence, it computes the expected clustering coefficient of a graph with such structure
-'''
-def compute_expected_cc(communities,degree_sequence, max_cc=False):        
-  accum = 0.0
-
-
-  return accum / len(degree_sequence)
 
 '''
   Given a graph G, a community and a degree sequence, creates the edges of the core of the community in G
@@ -281,7 +273,9 @@ def refine_communities(communities,degree_sequence,target_cc, cc_info, max_cc):
       current_cc = clustering_coefficient(cc_info)
       tries = 0
 
-
+'''
+  Recomputes the cc of the nodes of the corresponding community
+'''
 def estimate_cc_community(degree_sequence, cc_info, community, max_cc = False):
   num_periphery_stubs = 0
   excedence_degree_sum = 0
@@ -336,7 +330,9 @@ def estimate_cc_community(degree_sequence, cc_info, community, max_cc = False):
       if deg > 1:
         cc_info.clustering_coefficient[community.core[node]] = (internal_triangles + periphery_triangles) / (deg*(deg-1))
 
-
+'''
+  Computes the expected clustering coefficient of the current configuration
+'''
 def clustering_coefficient(cc_info):
   accum = 0.0
   for cc in cc_info.clustering_coefficient:

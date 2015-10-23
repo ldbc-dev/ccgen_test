@@ -101,8 +101,11 @@ def createFile(result, fileName):
 
 
 if __name__ == '__main__':
-	r = generateData(10, 10)
-	createFile(r, 'data10_10.csv')
+	nCliques = [10, 50, 100]
+	for i in nCliques:
+		print i
+		r = generateData(10, 10)
+		createFile(r, ('data%s_10.csv' % (i, )))
 
 
 	'''

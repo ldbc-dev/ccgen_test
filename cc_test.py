@@ -67,7 +67,7 @@ def generateData(nClique, nObservations):
 	result = []
 	prob = 0
 	t=0
-	while prob < 1:
+	while prob <= 1:
 		#print prob
 		cc = []
 		
@@ -108,7 +108,7 @@ if __name__ == '__main__':
 	nCliques = [10, 50, 100]
 	for i in nCliques:
 		print i
-		r = generateData(10, 10)
+		r = generateData(i, 10)
 		createFile(r, ('./data/data%s_10_t.csv' % (i, )))
 
 

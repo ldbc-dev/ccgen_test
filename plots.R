@@ -22,7 +22,7 @@ pValues <- unique(data$p)
 results <- data.frame(prob = numeric(), mVar = numeric())
 for(p in pValues){
   values <- data[which(data$p == p),]
-  meanVar <- abs(sum(values$ecc - values$cc))/10
+  meanVar <- abs(sum(values$ecc - values$cc))/nrow(values)
   results <- rbind(results, data.frame(p, meanVar))
 }
 

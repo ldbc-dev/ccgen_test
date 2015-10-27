@@ -15,7 +15,7 @@ library('ggplot2')
 # p2
 # dev.off()
 
-data <- read.csv('./data/data50_10_0.05.csv', sep = '|')
+data <- read.csv('./data/data50_10_t.csv', sep = '|')
 colnames(data) <- c('p', 'ecc', 'cc')
 pValues <- unique(data$p)
 
@@ -27,7 +27,7 @@ for(p in pValues){
 }
 
 
-pdf('plot50_10_0.05.pdf')
+pdf('plot50_10_t.pdf')
 p2 <- ggplot(results, aes(x=p, y=meanVar)) +
   geom_line(alpha=.3, color = I('red')) +
   ggtitle("Clustering coeff.") + 

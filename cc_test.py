@@ -84,7 +84,7 @@ def generateData(nClique, nObservations):
 			#print nx.average_clustering(g, count_zeros = True)
 
 
-		estimated = ((nClique - 1) * (nClique - 2)* np.power(prob, 3))/((nClique - 1) * (nClique - 2))
+		estimated = prob
 		result.append(ccInfo(prob, estimated, cc))
 		print ("%s | %s | %s" % (prob, estimated, cc))
 		prob = prob + 0.05#pInc

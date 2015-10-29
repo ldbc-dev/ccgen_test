@@ -1,10 +1,10 @@
-setwd('/home/ariel/Documents/ac/clusterCoeff/ccgen_test')
+#setwd('/home/ariel/Documents/ac/clusterCoeff/ccgen_test')
 library('ggplot2')
 
-data <- read.csv('./data/data50_100_t.csv', sep = '|')
+data <- read.csv('./data/data100_100_t.csv', sep = '|')
 colnames(data) <- c('p', 'ecc', 'cc')
 
-pdf('./results/plot50_100.pdf')
+pdf('./results/tplot100_100.pdf')
 p1 <- ggplot(data, aes(x=p, y=ecc)) +
   geom_line(alpha=.3) +
   geom_point(aes(cc, color=as.factor(cc))) +
@@ -25,7 +25,7 @@ for(p in pValues){
 }
 
 
-pdf('./results/plot50_100_t.pdf')
+pdf('./results/plot100_100_t.pdf')
 p2 <- ggplot(results, aes(x=p, y=meanVar)) +
   geom_line(alpha=.3, color = I('red')) +
   ggtitle("Clustering coeff.") + 
@@ -34,3 +34,4 @@ p2 <- ggplot(results, aes(x=p, y=meanVar)) +
 
 p2
 dev.off()
+print('Done')

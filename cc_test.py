@@ -66,7 +66,7 @@ def generateData(nClique, nObservations):
 	nodes = range(0, nClique)
 	result = []
 	prob = 0.0
-	t=0.0
+	#t=0.0
 	while prob <= 1:
 		#print prob
 		cc = []
@@ -87,9 +87,9 @@ def generateData(nClique, nObservations):
 		estimated = prob
 		result.append(ccInfo(prob, estimated, cc))
 		print ("%s | %s | %s" % (prob, estimated, cc))
-		#prob = prob + 0.05#pInc
-		t = t + 1 
-		prob = t*float(2)/float((nClique*(nClique-1)))
+		prob = prob + 0.05#pInc
+		#t = t + 1 
+		#prob = t*float(2)/float((nClique*(nClique-1)))
 
 	return result
 			
@@ -109,7 +109,7 @@ if __name__ == '__main__':
 	for i in nCliques:
 		print i
 		r = generateData(i, 100)
-		createFile(r, ('./data/data%s_100_t.csv' % (i, )))
+		createFile(r, ('./data/data%s_100_0.05.csv' % (i, )))
 
 
 	'''
